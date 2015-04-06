@@ -1,0 +1,14 @@
+<h2><%= @user.name %></h2>
+
+City
+> <%= @user.city.name %><br>
+
+Cohort
+> <%= @user.cohort.name %><br>
+
+Companies
+<ul>
+<% @user.companies.each do |company| %>
+	<li><%= company.name %></li>
+<% end %>
+</ul>
