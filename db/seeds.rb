@@ -11,6 +11,7 @@ def make_seeds
 	make_cohorts
 	make_companies
 	make_users
+	make_positions
 end
 
 def make_cities
@@ -34,11 +35,18 @@ def make_companies
 end
 
 def make_users
-  User.create(name: "Lewaa", city_id: 1, cohort_id: 1, company_id: 1, current_student: false, claimed: true)
-  User.create(name: "Geraldina", city_id: 2, cohort_id: 2, company_id: 2, current_student: true, claimed: false)
-  User.create(name: "Ashley", city_id: 1, cohort_id: 3, company_id: 3, current_student: false, claimed: true)
-  User.create(name: "Bobby", city_id: 1, cohort_id: 1, company_id: 1, current_student: false, claimed: false)
-  User.create(name: "Andrea", city_id: 3, cohort_id: 2, company_id: 2, current_student: true, claimed: false)
+  User.create(name: "Lewaa", city_id: 1, cohort_id: 1, current_student: false, claimed: true)
+  User.create(name: "Geraldina", city_id: 2, cohort_id: 2, current_student: true, claimed: false)
+  User.create(name: "Ashley", city_id: 1, cohort_id: 3, current_student: false, claimed: true)
+  User.create(name: "Bobby", city_id: 1, cohort_id: 1, current_student: false, claimed: false)
+  User.create(name: "Andrea", city_id: 3, cohort_id: 2, current_student: true, claimed: false)
+end
+
+def make_positions
+	Position.create(employee_id: 1, company_id: 1)
+	Position.create(employee_id: 1, company_id: 2)
+	Position.create(employee_id: 2, company_id: 3)
+	Position.create(employee_id: 3, company_id: 4)
 end
 
 make_seeds
