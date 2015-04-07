@@ -13,7 +13,10 @@
 </head>
 <body>
 
-<%= render 'layouts/search_bar' %>
+<% unless current_user.nil? %>
+  <%= render 'layouts/search_bar' %>
+<% end %>
+
 <%= yield %>
 
 </body>
