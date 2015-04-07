@@ -13,6 +13,10 @@
 </head>
 <body>
 
+<% if flash[:notice]  %>
+  <p id="notice"><%= flash[:notice] %></p>
+<% end %>
+
 <% unless current_user.nil? %>
   <%= render 'layouts/header' %>
 <% end %>

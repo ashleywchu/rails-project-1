@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
-  root 'sessions#new'
-    
+  root 'logged_out#home'
+  
+  get "/dashboard" => "logged_in#home"  
+
   get "/search" => "search#index"
   get "/search" => "search#index"
 
