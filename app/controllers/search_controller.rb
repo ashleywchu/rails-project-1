@@ -12,7 +12,7 @@ class SearchController < ApplicationController
 			end
 		else
 			@fuzzy_search_results = Search.for(params[:keyword])
-			render "/words/error" if @fuzzy_search_results.empty?
+			render "/search/error" if @fuzzy_search_results.empty?
 		end
 	end
 end
