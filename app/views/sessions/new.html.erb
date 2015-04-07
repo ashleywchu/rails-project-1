@@ -1,6 +1,4 @@
-<h1>Sign In</h1>
-<% if current_user %>
-   <%= "Welcome #{current_user.name}" %>
-<% else %>
+<% if current_user.nil? %>
   <%= link_to "Sign in with Linkedin", "/auth/linkedin" %>
 <% end %>
+
