@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  
+  get "/search" => "search#index"
+  get "/search" => "search#index"
+
   resources :cities
-
   resources :cohorts
-
   resources :companies
 
   resources :users

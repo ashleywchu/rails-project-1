@@ -1,0 +1,5 @@
+<%= form_tag("/search", method: "get") do %>
+	<%= label_tag "Search" %>
+	<%= text_field_tag :keyword %>
+	<%= submit_tag "Search" %>
+<% end %>
