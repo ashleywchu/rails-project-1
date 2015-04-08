@@ -1,6 +1,9 @@
-<%= @cohort.name %>
+<h3>Viewing students from: <%= @cohort.name %></h3>
+<%= link_to "Back to Cohorts", cohorts_path %>
 <ul>
 <% @cohort.users.each do |user| %>
-	<li><%= user.name %></li>
+	<li><%= link_to user.name, user%></li>
 <% end %>
 </ul>
+
+

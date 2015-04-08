@@ -1,5 +1,7 @@
+<h3>Viewing alumn working at: <%= @company.name %></h3>
+<%= link_to "Back to Companies", companies_path %>
 <ul>
 <% @company.employees.each do |employee| %>
-	<li><%= employee.name %></li>
+	<li><%= link_to employee.name, employee %></li>
 <% end %>
 </ul>

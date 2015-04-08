@@ -1,6 +1,6 @@
-<h2>Cohorts</h2>
+<h2>Flatiron School Cohorts</h2>
 <ul>
 <% @cohorts.each do |cohort| %>
-	<li><%= cohort.name %></li>
+	<li><%= link_to cohort.name, cohort %></li>
 <% end %>
 </ul>
