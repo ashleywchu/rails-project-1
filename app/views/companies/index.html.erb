@@ -1,4 +1,5 @@
 <h2>Companies</h2>
+<%= link_to "Back to Dashboard", dashboard_path %>
 <ul>
 <% @companies.each do |company| %>
 	<li><%= link_to company.name, company %></li>

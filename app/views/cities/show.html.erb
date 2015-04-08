@@ -1,5 +1,7 @@
+<h3>Viewing students from: <%= @city.name %></h3>
+<%= link_to "Back to cities", cities_path %>
 <ul>
 <% @city.users.each do |user| %>
-	<li><%= user.name %></li>
+	<li><%= link_to user.name, user %></li>
 <% end %>
 </ul>

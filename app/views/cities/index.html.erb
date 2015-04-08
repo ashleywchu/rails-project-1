@@ -1,6 +1,7 @@
 <h2>Cities</h2>
+<%= link_to "Back to Dashboard", dashboard_path %>
 <ul>
 <% @cities.each do |city| %>
-	<li><%= city.name %></li>
+	<li><%= link_to city.name, city %></li>
 <% end %>
 </ul>
