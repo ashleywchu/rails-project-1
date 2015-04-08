@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
     user.provider = auth["provider"]
     user.uid = auth["uid"]
     user.save
+    user
   end
 
   def self.make_positions(user, auth)

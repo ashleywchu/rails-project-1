@@ -4,8 +4,9 @@ class City < ActiveRecord::Base
 
 
    def self.create(location)
-    create! do |city|
-      city.name = location
-    end
+    city = City.new
+    city.name = location
+    city.save
+    city
   end
 end
