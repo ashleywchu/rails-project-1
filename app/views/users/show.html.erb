@@ -4,7 +4,7 @@ City
 > <%= @user.city.name %><br>
 
 Cohort
-> <%= @user.name %><br>
+> <%= @user.cohort == nil ? "Cohort not set. Please edit your profile to set your cohort." : @user.cohort.name %><br>
 
 Companies
 <ul>
