@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
     # binding.pry
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     city = City.find_by_name(user.location) || City.create(user.location)
-    scrapped_profile = Company.scrape_profile(user.linkedin_url)
-    Company.find_or_create_scraped_companies(scrapped_profile.current_companies)
-    Company.find_or_create_scraped_companies(scrapped_profile.past_companies)
+    city.users << user
+    # scrapped_profile = Company.scrape_profile(user.linkedin_url)
+    # Company.find_or_create_scraped_companies(scrapped_profile.current_companies)
+    # Company.find_or_create_scraped_companies(scrapped_profile.past_companies)
     session[:user_id] = user.id
     redirect_to "/dashboard", :notice => "Signed in!"
   end
