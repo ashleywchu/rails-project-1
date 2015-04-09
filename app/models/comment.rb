@@ -1,7 +1,7 @@
-class Post < ActiveRecord::Base
+class Comment < ActiveRecord::Base
+	belongs_to :post
 	belongs_to :user
-	has_many :comments
-	
+
 	validates :name, presence: true
 	validates :content, presence: true
 end

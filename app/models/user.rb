@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	delegate :graduation_date, to: :cohort
 
   has_many :posts
+  has_many :comments
 
  def self.create_with_omniauth(auth)
     user = User.new
