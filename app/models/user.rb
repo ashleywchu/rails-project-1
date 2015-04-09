@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	belongs_to :city
 	delegate :graduation_date, to: :cohort
 
+  has_many :posts
 
  def self.create_with_omniauth(auth)
     user = User.new

@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create", as: :login
   get "/logout" => "sessions#destroy", :as => :logout
 
+  resources :posts
+
 end
