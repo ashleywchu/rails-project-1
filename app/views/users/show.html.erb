@@ -1,7 +1,9 @@
 <div class="col-md-6 col-md-offset-1">
 	<h2><%= @user.name %></h2>
 
-	<a href="<%= @user.linkedin_url%>"><%= image_tag @user.image_url %></a><br>
+
+<a href="<%= @user.linkedin_url%>">
+<%= image_tag @user.image_url, :class => "img-rounded"%></a><br>
 
 	City: <%= @user.city.name %><br>
 
