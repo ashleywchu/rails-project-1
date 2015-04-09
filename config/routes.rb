@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :comments
+
   root 'logged_out#home'
   
   get "/dashboard" => "logged_in#home"  
@@ -15,5 +17,9 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create", as: :login
   get "/logout" => "sessions#destroy", :as => :logout
+
+  resources :posts do 
+    resources :comments
+  end
 
 end

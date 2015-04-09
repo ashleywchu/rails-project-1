@@ -5,9 +5,25 @@ class User < ActiveRecord::Base
 	belongs_to :city
 	delegate :graduation_date, to: :cohort
 
+  has_many :posts
+  has_many :comments
 
  def self.create_with_omniauth(auth)
     user = User.new
+    user.name = auth["info"]["name"]
+    user.email = auth["info"]["email"]
+    user.location = auth["info"]["location"]
+    user.description = auth["info"]["description"]
+    user.image_url = auth["info"]["image"]
+    user.linkedin_url = auth["info"]["urls"]["public_profile"]
+    make_positions(user, auth)
+    user.provider = auth["provider"]
+    user.uid = auth["uid"]
+    user.save
+    user
+  end
+
+   def self.update_with_omniauth(user, auth)
     user.name = auth["info"]["name"]
     user.email = auth["info"]["email"]
     user.location = auth["info"]["location"]
