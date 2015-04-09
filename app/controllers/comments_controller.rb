@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 		user.comments << @comment
 		post = Post.find(params[:post_id])
 		post.comments << @comment
+		redirect_to post
 	end
 
 	private

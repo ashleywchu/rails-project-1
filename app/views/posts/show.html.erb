@@ -13,6 +13,15 @@
 <% end %>
 
 <!-- Must add existing comments to this view! -->
+<container class="show">
+	<% @comments.each do |comment| %>
+		<div class="row" >
+			<%= comment.name %>
+			<%= comment.content %>
+			<%= comment.created_at%>
+		</div>
+	<% end %>
+<container>
 
 <p><%= link_to 'Edit', edit_post_path(@post) %></p>
 <p><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
