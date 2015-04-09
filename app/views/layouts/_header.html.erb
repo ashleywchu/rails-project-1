@@ -1,6 +1,16 @@
-<%= render 'layouts/search_bar' %>
-<%= link_to 'Profile', current_user %>
-<% if current_user %>
-  <%= "Welcome #{current_user.name}" %>
-  <%= link_to "Log Out", "/logout" %>
-<% end %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/dashboard">Flatiron Social Network</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+					<li><%= link_to 'Profile', current_user, class: "navbar-link" %></li>
+				  <li><%= link_to "Log Out", "/logout", class: "navbar-link" %></li>
+				<% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

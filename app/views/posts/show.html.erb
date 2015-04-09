@@ -5,12 +5,14 @@
 
 <h5>Post a comment: </h5>
 <%= form_for [@post, @comment] do |f|%>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<%= f.label :content %>
-	<%= f.text_area :content %>
+	<%= f.label :title %><br>
+	<%= f.text_field :name %><br>
+	<%= f.label :content %><br>
+	<%= f.text_area :content %><br>
 	<%= f.submit %>
 <% end %>
+
+<!-- Must add existing comments to this view! -->
 
 <p><%= link_to 'Edit', edit_post_path(@post) %></p>
 <p><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
