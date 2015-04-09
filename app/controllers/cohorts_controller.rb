@@ -18,8 +18,18 @@ class CohortsController < ApplicationController
 		redirect_to "/users/#{session[:user_id]}"
 	end
 
-	def edit
+ 	def update 
+    @cohort = Cohort.find(params[:id])
+     if @cohort.update_attributes(post_params)
+        redirect_to :action => 'index'#, :id => @cohort
+     else
+        @cohorts = Cohort.find(:all)
+        render :action => 'edit'
+     end
+ 	end
 
+	def edit
+		@cohort = Cohort.find(params[:id])
 	end
 	
 	private

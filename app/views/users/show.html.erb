@@ -1,22 +1,26 @@
-<h2><%= @user.name %></h2>
-
-<a href="<%= @user.linkedin_url%>"><%= image_tag @user.image_url %></a><br>
-
-City: <%= @user.city.name %><br>
-
-Cohort: <% if @user.cohort == nil %>
-					<%= render "/users/form" %><%= link_to "Create Cohort", "/cohorts/new" %>
-				<% else %>
-					<%= @user.cohort.name %>
-				<% end %> <br>
+<div class="col-md-6 col-md-offset-1">
+	<h2><%= @user.name %></h2>
 
 
-Email: <%= @user.email %><br>
+<a href="<%= @user.linkedin_url%>">
+<%= image_tag @user.image_url, :class => "img-rounded"%></a><br>
 
-Companies
-<ul>
-<% @user.companies.each do |company| %>
-	<li><%= company.name %></li>
-<% end %>
-</ul>
+	City: <%= @user.city.name %><br>
+
+	Cohort: <% if @user.cohort == nil %>
+						<%= render "/users/form" %><%= link_to "Create Cohort", "/cohorts/new" %>
+					<% else %>
+						<%= @user.cohort.name %>
+					<% end %> <br>
+
+
+	Email: <%= @user.email %><br>
+
+	Companies
+	<ul>
+	<% @user.companies.each do |company| %>
+		<li><%= company.name %></li>
+	<% end %>
+	</ul>
+</div>
 

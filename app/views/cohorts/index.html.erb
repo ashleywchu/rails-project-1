@@ -2,6 +2,7 @@
 <%= link_to "Back to Dashboard", dashboard_path %>
 <ul>
 <% @cohorts.each do |cohort| %>
-	<li><%= link_to cohort.name, cohort %></li>
+	<li><%= link_to cohort.name, cohort %>    
+  <%= link_to "Edit", edit_cohort_path(cohort)%> 
 <% end %>
 </ul>
