@@ -1,6 +1,6 @@
 <%= render 'layouts/search_bar' %>
-<%= link_to 'Profile', current_user %>
 <% if current_user %>
+  <%= link_to 'Profile', current_user %><ul>
   <%= "Welcome #{current_user.name}" %>
   <%= link_to "Log Out", "/logout" %>
 <% end %>
