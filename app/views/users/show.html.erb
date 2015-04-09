@@ -1,10 +1,17 @@
 <h2><%= @user.name %></h2>
 
-City
-> <%= @user.city.name %><br>
+<a href="<%= @user.linkedin_url%>"><%= image_tag @user.image_url %></a><br>
 
-Cohort
-> <%= @user.cohort == nil ? "Cohort not set. Please edit your profile to set your cohort." : @user.cohort.name %><br>
+City: <%= @user.city.name %><br>
+
+Cohort: <% if @user.cohort == nil %>
+					<%= render "/users/form" %><%= link_to "Create Cohort", "/cohorts/new" %>
+				<% else %>
+					<%= @user.cohort.name %>
+				<% end %> <br>
+
+
+Email: <%= @user.email %><br>
 
 Companies
 <ul>
@@ -12,3 +19,4 @@ Companies
 	<li><%= company.name %></li>
 <% end %>
 </ul>
+
