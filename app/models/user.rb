@@ -30,11 +30,30 @@ class User < ActiveRecord::Base
     user.description = auth["info"]["description"]
     user.image_url = auth["info"]["image"]
     user.linkedin_url = auth["info"]["urls"]["public_profile"]
-    make_positions(user, auth)
+    update_positions(user, auth)
     user.provider = auth["provider"]
     user.uid = auth["uid"]
     user.save
     user
+  end
+
+  def self.update_positions(user, auth)
+    company_hashes = auth["extra"]["raw_info"]["threeCurrentPositions"]["values"]
+    if company_hashes
+      company_hashes.each do |hash|
+        company = Company.find_or_create_by(:name => hash["company"]["name"])
+        position = Position.find_by(:employee_id => user.id, :company_id => company.id)
+        position ||= Position.new(:company_id => company.id, :employee_id => user.id)
+        if hash["title"] 
+          position.title = hash["title"]
+        end
+        if hash["startDate"]
+          position.start_month = hash["startDate"]["month"] if hash["startDate"]["month"]
+          position.start_year = hash["startDate"]["year"] if hash["startDate"]["year"]
+        end
+        position.save
+      end
+    end
   end
 
   def self.make_positions(user, auth)
@@ -42,14 +61,14 @@ class User < ActiveRecord::Base
     if company_hashes
       company_hashes.each do |hash|
         company = Company.find_or_create_by(:name => hash["company"]["name"])
-        positon = Position.new(:company_id => company.id)
-        positon.title = hash["title"] if hash["title"] 
+        position = Position.new(:company_id => company.id)
+        position.title = hash["title"] if hash["title"] 
         if hash["startDate"]
-          positon.start_month = hash["startDate"]["month"] if hash["startDate"]["month"]
-          positon.start_year = hash["startDate"]["year"] if hash["startDate"]["year"]
+          position.start_month = hash["startDate"]["month"] if hash["startDate"]["month"]
+          position.start_year = hash["startDate"]["year"] if hash["startDate"]["year"]
         end
-        positon.save
-        user.positions << positon
+        position.save
+        user.positions << position
       end
     end
   end

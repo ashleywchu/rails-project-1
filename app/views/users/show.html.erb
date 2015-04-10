@@ -25,8 +25,8 @@
 
   <h>Companies :</h>
   <ul>
-    <% @user.companies.each do |company| %>
-      <li><%= company.name %></li>
+    <% @user.positions.each do |position| %>
+      <li><%= position.company.name %>: <%= position.title %></li>
     <% end %>
 </div>
   </ul>
