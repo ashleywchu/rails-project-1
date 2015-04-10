@@ -1,6 +1,4 @@
 <%= form_for(@user) do |f| %>
-	
 	<%= f.collection_select(:cohort_id, Cohort.all, :id, :name) %>
-
 	<%= f.submit "Submit" %>
 <% end %>
