@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :posts do 
+    resources :comments
+  end
   resources :comments
 
   root 'logged_out#home'
@@ -18,8 +21,5 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create", as: :login
   get "/logout" => "sessions#destroy", :as => :logout
 
-  resources :posts do 
-    resources :comments
-  end
 
 end
