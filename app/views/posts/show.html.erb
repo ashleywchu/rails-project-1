@@ -1,27 +1,31 @@
-<h2><%= link_to @post.name, @post %></h2> <span>written by: <%= @post.user.name %> </span>
+<h2><%= link_to @post.name, @post %></h2> 
+<p>written by: <%= @post.user.name %></p>
 
-<h3>Content:</h3>
-<%= @post.content %>
-
-<h5>Post a comment: </h5>
-<%= form_for [@post, @comment] do |f|%>
-	<%= f.label :title %><br>
-	<%= f.text_field :name %><br>
-	<%= f.label :content %><br>
-	<%= f.text_area :content %><br>
-	<%= f.submit %>
+<% if @post.user == current_user %>
+	<%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
-<!-- Must add existing comments to this view! -->
-<container class="show">
-	<% @comments.each do |comment| %>
-		<div class="row" >
-			<%= comment.name %>
-			<%= comment.content %>
-			<%= comment.created_at%>
-		</div>
-	<% end %>
-<container>
+<h4>Content:</h4>
+<%= @post.content %>
 
-<p><%= link_to 'Edit', edit_post_path(@post) %></p>
-<p><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<h4>Comments:</h4>
+<ul class="list-group">
+	<li class="list-group-item list-inline">
+		<h5>Post a comment: </h5>
+		<%= form_for [@post, @comment] do |f|%>
+			<%= f.label :title %><br>
+			<%= f.text_field :name %><br>
+			<%= f.label :content %><br>
+			<%= f.text_area :content %><br>
+			<%= f.submit %>
+		<% end %>
+	</li>
+	<% @comments.each do |comment| %>
+	<li class="list-group-item list-inline">
+		<h5><%= comment.name %></h5>
+		<p><%= comment.content %></p>
+		<p><%= comment.created_at%></p>
+	</li>
+	<% end %>
+</ul>
+
