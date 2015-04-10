@@ -3,14 +3,12 @@ class SessionsController < ApplicationController
   
   def create
     auth = request.env["omniauth.auth"]
-
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) 
     user.nil? ? user = User.create_with_omniauth(auth) : user = User.update_with_omniauth(user, auth)
-    # binding.pry
     city = City.find_by_name(user.location) 
     city ||= City.create(user.location)
     city.users << user # OR user.city_id = city.id
-
+    # fix ^^^
     session[:user_id] = user.id
     redirect_to "/dashboard", :notice => "Signed in!"
   end
