@@ -68,6 +68,8 @@ class User < ActiveRecord::Base
           position.start_year = hash["startDate"]["year"] if hash["startDate"]["year"]
         end
         position.save
+        # binding.pry
+        
         user.positions << position
       end
     end
