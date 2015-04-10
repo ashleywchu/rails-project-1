@@ -1,16 +1,19 @@
 <body>
-<div class="container" "row" "col-md-offset-2">
+
+<div class="row" "col-md-offset-6">
+<div class="container">
   <a href="<%= @user.linkedin_url%>">
   <%= image_tag @user.image_url, :class => "img-rounded"%></a>
 </div>
   
-<div class="col-md-6" "container-fluid">
+<div class="col-md-12"container-fluid">
   <h1><%= @user.name %></h1>
 
-  <h>City: <%= @user.city.name %></h><br><br>
 </div>
 
 <div class="col-md-6" "container-fluid">
+
+<h>City: <%= @user.city.name %></h><br><br>
   <h>Cohort: <% if @user.cohort == nil %></h>
             <%= render "/users/form" %>
     
@@ -25,6 +28,7 @@
     <% @user.companies.each do |company| %>
       <li><%= company.name %></li>
     <% end %>
+</div>
   </ul>
 </div>
 </body>
