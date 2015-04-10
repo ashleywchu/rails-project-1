@@ -24,13 +24,9 @@
 	<li class="list-group-item list-inline">
 		<h5>Post a comment: </h5>
 		<%= form_for [@post, @comment] do |f|%>
-<<<<<<< HEAD
 			<%= f.hidden_field :post_id, value: @post.id %>
 			<%= f.hidden_field :user_id, value: current_user.id %>
 			<%= f.label :name, "Title" %><br>
-=======
-			<%= f.label :name, "Title"%><br>
->>>>>>> 19489ba36adc27f8faaa1db4ba86d7800253e207
 			<%= f.text_field :name %><br>
 			<%= f.label :content, "Comment" %><br>
 			<%= f.text_area :content %><br>
