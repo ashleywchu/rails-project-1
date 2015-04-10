@@ -1,14 +1,21 @@
-<div class="col-md-2 col-md-offset-1">
-    <%= form_tag("/search", method: "get") do %>
-    	<%= "Search Through Database" %> <br>
-      <%= "Name:"%> <br>
-    	<%= text_field_tag :users_keyword %> <br>
-      <%= "Cohort:"%><br>
-      <%= text_field_tag :cohorts_keyword %><br>
-      <%= "Company:"%><br>
-    	<%= text_field_tag :companies_keyword %><br>
-      <%= "City:"%><br>
-      <%= text_field_tag :location_keyword %><br>
-      <%= submit_tag "Search" %>
-    <% end %>
+<div class="col-xs-6 col-md-4">
+  <h4>Browse Flatiron Affiliates by:</h4>
+  <ul>
+    <li><%= link_to "Cohort", cohorts_path %></li>
+    <li><%= link_to "City", cities_path %></li>
+    <li><%= link_to "Company", companies_path %></li>
+  </ul>
+
+  <h4>Search the directory:</h4>
+  <%= form_tag("/search", method: "get") do %>
+    <%= "Name:"%> <br>
+  	<%= text_field_tag :users_keyword %> <br>
+    <%= "Cohort:"%><br>
+    <%= text_field_tag :cohorts_keyword %><br>
+    <%= "Company:"%><br>
+  	<%= text_field_tag :companies_keyword %><br>
+    <%= "City:"%><br>
+    <%= text_field_tag :location_keyword %><br><br>
+    <%= submit_tag "Search" %>
+  <% end %>
 </div> 

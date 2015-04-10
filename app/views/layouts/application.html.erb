@@ -19,10 +19,13 @@
 
 <% unless current_user.nil? %>
   <%= render 'layouts/header' %>
+<% end %>
+<div class="col-xs-9 col-md-6 col-xs-offset-3 col-md-offset-2">
+  <%= yield %>
+</div>
+<% unless current_user.nil? %>
   <%= render 'layouts/search_bar' %>
 <% end %>
-  <%= yield %>
-
 
 </body>
 </html>

@@ -1,5 +1,19 @@
-<h2>Dashboard</h2>
-Find current and past Flatiron Alums by:<br>
-<%= link_to "Cohort", cohorts_path %><br>
-<%= link_to "City", cities_path %><br>
-<%= link_to "Company", companies_path %>
+<h1>//IRONBOARD</h1>
+<%= link_to "POST in IRONBOARD", new_post_path %>
+
+<ul class="list-group">
+<% @posts.each do |post| %>
+	<li class="list-group-item list-inline">
+		<div>
+			<h4><%= link_to post.name, post %></h4>
+			<p class="text-right"><%= post.created_at %></p>
+		</div>
+		<div>
+			<h6>by <%= post.user.name %></h6>
+		</div>
+	</li>
+<% end %>
+</ul>
+
+
+<br>
