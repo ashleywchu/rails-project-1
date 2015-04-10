@@ -6,28 +6,28 @@
   <%= image_tag @user.image_url, :class => "img-rounded"%></a>
 </div>
   
-<div class="col-md-12"container-fluid">
+<div class="col-md-12"container-fluid>
   <h1><%= @user.name %></h1>
 
 </div>
 
 <div class="col-md-6" "container-fluid">
-
-<h>City: <%= @user.city.name %></h><br><br>
-  <h>Cohort: <% if @user.cohort == nil %></h>
+<ul class="list-group">
+<li class="list-group-item list-group-item-info">City: <%= @user.city.name %></h></li>
+<li class="list-group-item list-group-item-info">Cohort: <% if @user.cohort == nil %></h>
             <%= render "/users/form" %>
     
             <%= link_to "Create Cohort", "/cohorts/new", :class => "btn btn-primary btn-xs btn btn-warning"%>
             <% else %>
-            <%= @user.cohort.name %>
-            <% end %> <br><br>
-  <h>Email: <%= @user.email %></h><br><br>
+            <%= @user.cohort.name %></li> 
+            <% end %>
+<li class="list-group-item list-group-item-info"><h>Email: <%= @user.email %></h></li>
 
-  <h>Companies :</h>
+<li class="list-group-item list-group-item-info"><h>Companies :</h>
   <ul>
     <% @user.companies.each do |company| %>
       <li><%= company.name %></li>
-    <% end %>
+    <% end %></li>
 </div>
   </ul>
 </div>
