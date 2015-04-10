@@ -3,9 +3,12 @@ class SessionsController < ApplicationController
   
   def create
     auth = request.env["omniauth.auth"]
-
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) 
-    user == nil ? User.create_with_omniauth(auth) : User.update_with_omniauth(user, auth)
+    if user.nil? 
+      user = User.create_with_omniauth(auth)
+    else
+      user = User.update_with_omniauth(user, auth)
+    end
     city = City.find_by_name(user.location) 
     city ||= City.create(user.location)
     city.users << user # OR user.city_id = city.id
