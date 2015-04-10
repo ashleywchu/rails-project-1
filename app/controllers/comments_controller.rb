@@ -3,6 +3,11 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(params[:id])
 	end
 
+	def new
+		@comment = Comment.find(session[:user_id])
+		@comment = Comment.new
+	end
+
 	def create
 		@comment = Comment.create(comment_params)
 		user = User.find(session[:user_id])
@@ -12,8 +17,12 @@ class CommentsController < ApplicationController
 		redirect_to post
 	end
 
+	def edit
+		@post = Comment.find(params[:id])
+	end
+
 	private
 	def comment_params
-		params.require(:comment).permit(:name, :content)
+		params.require(:comment).permit(:name, :content, :user_id)
 	end
 end
