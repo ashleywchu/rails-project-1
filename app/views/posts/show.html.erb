@@ -16,7 +16,8 @@
 	<li class="list-group-item list-inline">
 		<h5><%= comment.name %></h5>
 		<p><%= comment.content %></p>
-		<p><%= comment.created_at%></p>
+		<p><%= comment.created_at.to_formatted_s(:long) %></p>
+		<p><%= current_user.name%></p>
 	</li>
 <% end %>
 
@@ -27,7 +28,7 @@
 		<h5>Post a comment: </h5>
 		<%= form_for [@post, @comment] do |f|%>
 			<%= f.hidden_field :post_id, value: @post.id %>
-			<%= f.hidden_field :user_id, current_user.id %>
+			<%= f.hidden_field :user_id, value: current_user.id %>
 			<%= f.label :name, "Title" %><br>
 			<%= f.text_field :name %><br>
 			<%= f.label :content, "Comment" %><br>
