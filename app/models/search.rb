@@ -35,9 +35,9 @@ class Search
 		end
 
 		results[:user_results] = user_results.flatten.uniq
-		results[:company_results] = company_results
-		results[:cohort_results] = cohort_results
-		results[:city_results] = city_results
+		results[:company_results] = company_results.flatten.uniq
+		results[:cohort_results] = cohort_results.flatten.uniq
+		results[:city_results] = city_results.flatten.uniq
 
 		results
 	end

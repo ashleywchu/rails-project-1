@@ -8,6 +8,7 @@
 	</thead>
 	<tbody>
 
+
 		<% if @fuzzy_search_results[:user_results].count > 0 %>
 			<tr><td><%= "USERS" %></td></tr>
 			<% @fuzzy_search_results[:user_results].each_with_index do |result, index| %>
@@ -20,37 +21,31 @@
 
 		<% if @fuzzy_search_results[:company_results].count > 0 %>
 			<tr><td><%= "COMPANIES" %></td></tr>
-			<% @fuzzy_search_results[:company_results].each do |results| %>
-				<% results.each_with_index do |result, result_index| %>
-					<tr>
-						<td><%= "#{result_index+1}" %></td>
-						<td><%= result.name %></td>
-					</tr>
-				<% end %>
+			<% @fuzzy_search_results[:company_results].each_with_index do |result, result_index| %>
+				<tr>
+					<td><%= "#{result_index+1}" %></td>
+					<td><%= result.name %></td>
+				</tr>
 			<% end %>
 		<% end %>
 
 		<% if @fuzzy_search_results[:cohort_results].count > 0 %>
 			<tr><td><%= "COHORTS" %></td></tr>
-			<% @fuzzy_search_results[:cohort_results].each do |results| %>
-				<% results.each_with_index do |result, result_index| %>
-					<tr>
-						<td><%= "#{result_index+1}" %></td>
-						<td><%= result.name %></td>
-					</tr>
-				<% end %>
+			<% @fuzzy_search_results[:cohort_results].each_with_index do |result, result_index| %>
+				<tr>
+					<td><%= "#{result_index+1}" %></td>
+					<td><%= result.name %></td>
+				</tr>
 			<% end %>
 		<% end %>
 
 		<% if @fuzzy_search_results[:city_results].count > 0 %>
 			<tr><td><%= "CITIES" %></td></tr>
-			<% @fuzzy_search_results[:city_results].each do |results| %>
-				<% results.each_with_index do |result, result_index| %>
-					<tr>
-						<td><%= "#{result_index+1}" %></td>
-						<td><%= result.name %></td>
-					</tr>
-				<% end %>
+			<% @fuzzy_search_results[:city_results].each_with_index do |result, result_index| %>
+				<tr>
+					<td><%= "#{result_index+1}" %></td>
+					<td><%= result.name %></td>
+				</tr>
 			<% end %>
 		<% end %>
 
