@@ -12,9 +12,10 @@ class CohortsController < ApplicationController
 	end
 
 	def create
-		@cohort = Cohort.create(post_params)
-		@user = User.find(session[:user_id])
-		@cohort.users << @user
+		cohort = Cohort.create(cohort_params)
+		user = User.find(session[:user_id])
+		cohort.users << user
+		cohort.save
 		redirect_to "/users/#{session[:user_id]}"
 	end
 
@@ -33,8 +34,7 @@ class CohortsController < ApplicationController
 	end
 	
 	private
-	def post_params
+	def cohort_params
 		params.require(:cohort).permit(:name, :start_date, :end_date)
 	end
-
 end
