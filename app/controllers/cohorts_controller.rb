@@ -21,7 +21,7 @@ class CohortsController < ApplicationController
 
  	def update 
     @cohort = Cohort.find(params[:id])
-     if @cohort.update_attributes(post_params)
+     if @cohort.update_attributes(cohort_params)
         redirect_to :action => 'index'#, :id => @cohort
      else
         @cohorts = Cohort.find(:all)
