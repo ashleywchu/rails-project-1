@@ -21,7 +21,7 @@
   <%= render 'layouts/header' %>
 <% end %>
 <div class="container col-xs-9 col-md-6 col-xs-offset-2 col-md-offset-2">
-  <% if current_user.verified == true %>
+  <% if current_user.verified == true || current_user == nil %>
     <%= yield %>
   <% else %>
     <%= "You are unverified." %>
