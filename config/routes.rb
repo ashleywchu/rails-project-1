@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
+  get '/posts', to: redirect('/dashboard')
   resources :posts do 
     resources :comments
   end
-  resources :comments
 
   root 'logged_out#home'
   
