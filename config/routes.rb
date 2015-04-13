@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root 'logged_out#home'
+  root, to: 'logged_out#home'
   
   get "/dashboard" => "logged_in#home"  
 
