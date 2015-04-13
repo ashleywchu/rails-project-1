@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@user = User.find(session[:user_id])
+		User.find(session[:user_id]) ? @user = User.find(session[:user_id]) : @user = User.new
 		@post = Post.new
 	end
 

@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
 	private
 	def ensure_fields_filled
 		if name.empty? && content.empty?
-
+			errors
 		end
 	end
 end

@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The Flatiron Network</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <%= analytics_init if Rails.env.production? %>
+  <head>
+    <title>The Flatiron Network</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= analytics_init if Rails.env.production? %>
 
-  <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+    <meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
 
-<% if flash[:notice]  %>
-  <p id="notice"><%= flash[:notice] %></p>
-<% end %>
 
-<% unless current_user.nil? %>
-  <%= render 'layouts/header' %>
-<% end %>
-<div class="container col-xs-9 col-md-6 col-xs-offset-2 col-md-offset-2">
-  <% if current_user == nil || current_user.verified == true %>
-    <%= yield %>
-  <% else %>
-    <%= "You are unverified." %>
-  <% end %>
-</div>
-<% unless current_user.nil? %>
-<div class="container col-xs-6 col-md-4">
-  <%= render 'layouts/search_bar' %>
-</div>
-<% end %>
-
-</body>
+    <% unless current_user.nil? %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <% if flash[:notice]  %>
+      <p id="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <div class="container col-xs-9 col-md-6 col-xs-offset-2 col-md-offset-2">
+      <% if current_user == nil || current_user.verified == true %>
+        <%= yield %>
+      <% else %>
+        <%= "You are unverified." %>
+      <% end %>
+    </div>
+    <% unless current_user.nil? %>
+      <div class="container col-xs-6 col-md-4">
+        <%= render 'layouts/search_bar' %>
+      </div>
+    <% end %>
+  </body>
 </html>
-
-<!--  -->
