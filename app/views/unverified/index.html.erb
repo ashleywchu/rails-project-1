@@ -1,4 +1,6 @@
 <ul>
+<%= link_to "Back to Dashboard", "/dashboard" %>
+<h1><%= "No Unverified Users" if @unverified_list.empty? %></h1>
 <% @unverified_list.each do |unverified_user| %>
 	<li>
 		<%= unverified_user.name %>
