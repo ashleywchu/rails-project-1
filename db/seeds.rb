@@ -57,9 +57,11 @@
 	def make_post_readme
 		Post.create(name: "Welcome to the Flatiron Network", content: "Hi there! This app is intented 
 			to be used as a tool to strengthen the Flatiron community, by helping to connect current 
-			and past Flatiron students. Right now, we are in Ironboard, which is a space to post any 
+			and past Flatiron students. You can search through the database of Flatiron students using the 
+			search bar on the right. Right now, we are in Ironboard, which is a space to post any 
 			information to the Flatiron community. You can post about job opportunities, upcoming events and
-			meetups, 
+			meetups, etc. Finally, to help grow this online community, verified Flatiron affiliates will be able
+			to verify new users, to which the link can be found on the right.
 			")
 	end
 
