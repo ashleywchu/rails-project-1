@@ -1,32 +1,36 @@
 <div class="container">
-<div class="col-md-3">
-<div class="jumbotron">
-  <h4>Verify Users:</h4>
-    <ul class="list-group">
-      <li class="list-group-item"><%= link_to "Unverified Users", "/unverified" %></li>
-    </ul>
-  </ul>
+  <div class="col-md-3">
+    <div class="well well-sm">
+      <h4>Verify Users:</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><%= link_to "Unverified Users", "/unverified" %></li>
+        </ul>
+      </ul>
 
-  <h4>Browse Flatiron Affiliates:</h4>
-    <ul class="list-group">
-      <li class="list-group-item"><%= link_to "Cohort", cohorts_path %></li>
-      <li class="list-group-item"><%= link_to "City", cities_path %></li>
-      <li class="list-group-item"><%= link_to "Company", companies_path %></li>
-    </ul>
-  </ul>
+    
+      <h4>Browse Flatiron Affiliates:</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><%= link_to "Cohort", cohorts_path %></li>
+          <li class="list-group-item"><%= link_to "City", cities_path %></li>
+          <li class="list-group-item"><%= link_to "Company", companies_path %></li>
+        </ul>
+      </ul>
 
-  <h4>Search the directory:</h4>
-  <%= form_tag("/search", method: "get") do %>
-    <%= "Name:"%> <br>
-  	<%= text_field_tag :users_keyword %> <br>
-    <%= "Cohort:"%><br>
-    <%= text_field_tag :cohorts_keyword %><br>
-    <%= "Company:"%><br>
-  	<%= text_field_tag :companies_keyword %><br>
-    <%= "City:"%><br>
-    <%= text_field_tag :location_keyword %><br><br>
-    <%= submit_tag "Search" %>
-  <% end %>
-</div> 
+      <h4>Search the directory:</h4>
+      <div >
+        <%= form_tag("/search", method: "get") do %>
+          <%= "Name:" %> <br>
+        	<%= text_field_tag :users_keyword, nil, :class => "form-control" %><br>
+          <%= "Cohort:" %><br>
+          <%= text_field_tag :cohorts_keyword, nil, :class => "form-control"  %><br>
+          <%= "Company:" %><br>
+        	<%= text_field_tag :companies_keyword, nil, :class => "form-control"  %><br>
+          <%= "City:" %><br>
+          <%= text_field_tag :location_keyword, nil, :class => "form-control"  %><br><br>
+          <%= submit_tag "Search", :class => "btn btn-default" %>
+        <% end %>
+      </div>
+    </div>
+  </div> 
 </div>
 

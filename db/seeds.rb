@@ -52,6 +52,11 @@
 
 	def make_seeds
 		make_post_readme
+		make_admin
+	end
+
+	def make_admin
+		User.create(name: "Ironbot")
 	end
 
 	def make_post_readme
@@ -61,8 +66,7 @@
 			search bar on the right. Right now, we are in Ironboard, which is a space to post any 
 			information to the Flatiron community. You can post about job opportunities, upcoming events and
 			meetups, etc. Finally, to help grow this online community, verified Flatiron affiliates will be able
-			to verify new users, to which the link can be found on the right.
-			")
+			to verify new users, through the link which can be found on the right.", user_id: 1)
 	end
 
 make_seeds

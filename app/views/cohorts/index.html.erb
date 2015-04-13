@@ -1,10 +1,12 @@
 <h1>Cohorts</h1>
 <%= link_to "Back to Dashboard", dashboard_path %>
-<ul class="list-group">
-	<% @cohorts.each do |cohort| %>
+<% @cohorts.each do |cohort| %>
+	<ul class="list-group">
 		<div>
-			<li href="/cohorts/<%= cohort.id %>"><%= cohort.name %></li>
-			<li class="btn btn-default" href="<%= edit_cohort_path(cohort) %>" role="button">Edit</li>
-		</div>
-	<% end %>
-</ul>
+			<li>
+				<a href="/cohorts/<%= cohort.id %>"><%= cohort.name %></a> | 
+				<a href="<%= edit_cohort_path(cohort) %>"> Edit </a>
+			</li>
+		</div>	
+	</ul>
+<% end %>
