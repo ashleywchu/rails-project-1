@@ -1,0 +1,11 @@
+<ul>
+<% @unverified_list.each do |unverified_user| %>
+	<li>
+		<%= unverified_user.name %>
+		<%= form_for unverified_user do |f| %>
+			<%= f.hidden_field :verified, :value => true %>
+			<%= f.submit "Verify User" %>
+		<% end %>
+	</li>
+<% end %>
+</ul>
