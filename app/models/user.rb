@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
     make_positions(user, auth)
     user.provider = auth["provider"]
     user.uid = auth["uid"]
+
+    user.verified = true if user.name == "Lewaa Bahmad" || user.name == "Ashley Chu"
+
     user.save
     user
   end
