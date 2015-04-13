@@ -1,8 +1,10 @@
 <h2>Flatiron School Cohorts</h2>
 <%= link_to "Back to Dashboard", dashboard_path %>
-<ul>
-<% @cohorts.each do |cohort| %>
-	<li><%= link_to cohort.name, cohort %>    
-  <%= link_to "Edit", edit_cohort_path(cohort)%> 
-<% end %>
+<ul class="list-group">
+	<% @cohorts.each do |cohort| %>
+		<div>
+			<li href="/cohorts/<%= cohort.id %>"><%= cohort.name %></li>
+			<li class="btn btn-default" href="<%= edit_cohort_path(cohort) %>" role="button">Edit</li>
+		</div>
+	<% end %>
 </ul>
