@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20150409151540) do
     t.integer  "city_id"
     t.integer  "cohort_id"
     t.boolean  "current_student"
-    t.boolean  "claimed",         default: false
+    t.boolean  "verified",        default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "uid"

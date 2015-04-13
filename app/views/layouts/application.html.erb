@@ -20,12 +20,20 @@
 <% unless current_user.nil? %>
   <%= render 'layouts/header' %>
 <% end %>
-<div class="col-xs-9 col-md-6 col-xs-offset-3 col-md-offset-2">
-  <%= yield %>
+<div class="container col-xs-9 col-md-6 col-xs-offset-2 col-md-offset-2">
+  <% if current_user.verified == true %>
+    <%= yield %>
+  <% else %>
+    <%= "You are unverified." %>
+  <% end %>
 </div>
 <% unless current_user.nil? %>
+<div class="container col-xs-6 col-md-4">
   <%= render 'layouts/search_bar' %>
+</div>
 <% end %>
 
 </body>
 </html>
+
+<!--  -->

@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.integer :city_id
     	t.integer :cohort_id
     	t.boolean :current_student, default: nil
-    	t.boolean :claimed, default: false
+    	t.boolean :verified, default: false
 
       t.timestamps null: false
     end
