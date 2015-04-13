@@ -9,9 +9,20 @@ class UsersController < ApplicationController
 
 	def update
 		user = User.find(params[:id])
-		user.cohort_id = params[:user][:cohort_id]
-		user.save
-		render user_path
+		if params[:user][:verified] == "true"
+			user.verified = true
+			user.save
+			redirect_to "/unverified"
+		else
+			user.cohort_id = params[:user][:cohort_id]
+			user.save
+			render user_path
+		end
+	end
+
+	def verify
+		binding.pry
+		user = User.find(params[:id])
 	end
 
   private 

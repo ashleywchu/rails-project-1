@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create", as: :login
   get "/logout" => "sessions#destroy", :as => :logout
 
+  get "unverified" => "unverified#index"
+  get "/users/verifyuser" => "users#verify"
 
 end

@@ -1,13 +1,18 @@
 <div class="container">
 <div class="col-md-3">
 <div class="jumbotron">
+  <h4>Verify Users:</h4>
+    <ul class="list-group">
+      <li class="list-group-item"><%= link_to "Unverified Users", "/unverified" %></li>
+    </ul>
+  </ul>
+
   <h4>Browse Flatiron Affiliates:</h4>
-  
- <ul class="list-group">
-  <li class="list-group-item"><%= link_to "Cohort", cohorts_path %></li>
-  <li class="list-group-item"><%= link_to "City", cities_path %></li>
-  <li class="list-group-item"><%= link_to "Company", companies_path %></li>
-</ul>
+    <ul class="list-group">
+      <li class="list-group-item"><%= link_to "Cohort", cohorts_path %></li>
+      <li class="list-group-item"><%= link_to "City", cities_path %></li>
+      <li class="list-group-item"><%= link_to "Company", companies_path %></li>
+    </ul>
   </ul>
 
   <h4>Search the directory:</h4>
