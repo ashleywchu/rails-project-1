@@ -36,11 +36,11 @@
 # end
 
 # def make_users
-#   User.create(name: "Lewaa", city_id: 1, cohort_id: 1, current_student: false, verified: true)
-#   User.create(name: "Geraldina", city_id: 2, cohort_id: 2, current_student: true, verified: false)
-#   User.create(name: "Ashley", city_id: 1, cohort_id: 3, current_student: false, verified: true)
-#   User.create(name: "Bobby", city_id: 1, cohort_id: 1, current_student: false, verified: false)
-#   User.create(name: "Andrea", city_id: 3, cohort_id: 2, current_student: true, verified: false)
+#   User.create(name: "Lewaa", city_id: 1, cohort_id: 1, current_student: false, claimed: true)
+#   User.create(name: "Geraldina", city_id: 2, cohort_id: 2, current_student: true, claimed: false)
+#   User.create(name: "Ashley", city_id: 1, cohort_id: 3, current_student: false, claimed: true)
+#   User.create(name: "Bobby", city_id: 1, cohort_id: 1, current_student: false, claimed: false)
+#   User.create(name: "Andrea", city_id: 3, cohort_id: 2, current_student: true, claimed: false)
 # end
 
 # def make_positions
@@ -50,4 +50,23 @@
 # 	Position.create(employee_id: 3, company_id: 4)
 # end
 
-# make_seeds
+	def make_seeds
+		make_post_readme
+		make_admin
+	end
+
+	def make_admin
+		User.create(name: "Ironbot")
+	end
+
+	def make_post_readme
+		Post.create(name: "Welcome to the Flatiron Network", content: "Hi there! This app is intented 
+			to be used as a tool to strengthen the Flatiron community, by helping to connect current 
+			and past Flatiron students. You can search through the database of Flatiron students using the 
+			search bar on the right. Right now, we are in Ironboard, which is a space to post any 
+			information to the Flatiron community. You can post about job opportunities, upcoming events and
+			meetups, etc. Finally, to help grow this online community, verified Flatiron affiliates will be able
+			to verify new users, through the link which can be found on the right.", user_id: 1)
+	end
+
+make_seeds
