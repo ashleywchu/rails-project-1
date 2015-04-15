@@ -60,7 +60,7 @@
 	end
 
 	def make_post_readme
-		Post.create(name: "Welcome to the Flatiron Network", content: "Hi there! This app is intented 
+		User.find(1).posts << Post.create(name: "Welcome to the Flatiron Network", content: "Hi there! This app is intented 
 			to be used as a tool to strengthen the Flatiron community, by helping to connect current 
 			and past Flatiron students. You can search through the database of Flatiron students using the 
 			search bar on the right. Right now, we are in Ironboard, which is a space to post any 
