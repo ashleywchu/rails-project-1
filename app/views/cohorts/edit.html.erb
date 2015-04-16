@@ -1,12 +1,18 @@
-<%= form_for(@cohort) do |f| %>
-  <%= f.label :cohort %>
-  <%= f.text_field :name, :class => "form-control" %><br>
+<%= form_for @cohort, :html => {class: 'form-horizontal'} do |f| %>
+  <div class="form-group">
+	  <%= f.label :cohort, "Cohort Name:", :class => "control-label" %>
+	  <%= f.text_field :name, :class => "form-control" %><br>
+  </div>
 
-  <%= f.label :start_date %>
-  <%= f.date_field :start_date, :class => "form-control" %><br>
+  <div class="form-group">
+	  <%= f.label :start_date, "Start Date:", :class => "control-label" %>
+	  <%= f.date_field :start_date, :class => "form-control" %><br>
+  </div>
 
-  <%= f.label :end_date %>
-  <%= f.date_field :end_date, :class => "form-control" %><br>
+  <div class="form-group">
+	  <%= f.label :end_date, "End Date:", :class => "control-label" %>
+	  <%= f.date_field :end_date, :class => "form-control" %><br>
+  </div>
 
   <%= f.submit "Submit Cohort", :class => "btn btn-default" %>
 <% end %>
